@@ -1,0 +1,37 @@
+package com.example.javacms.service.impl;
+
+import com.example.javacms.entity.Role;
+import com.example.javacms.entity.User;
+import com.example.javacms.service.RoleService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class RoleServiceImpl implements RoleService {
+
+    @Override
+    public List<Role> findAll() {
+        return List.of();
+    }
+
+    @Override
+    public Role findById(int id) {
+        return null;
+    }
+
+    @Override
+    public void save(User user) {
+
+    }
+
+    @Override
+    public void update(User user) {
+
+    }
+
+    @Override
+    public void deleteById(int id) {
+
+    }
+}
