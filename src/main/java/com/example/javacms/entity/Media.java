@@ -21,6 +21,6 @@ public class Media extends BaseEntity implements Serializable {
     private Article article;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "member_id")
+    private Member member;
 }

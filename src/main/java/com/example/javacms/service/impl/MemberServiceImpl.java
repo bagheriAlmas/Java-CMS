@@ -1,31 +1,31 @@
 package com.example.javacms.service.impl;
 
-import com.example.javacms.entity.User;
-import com.example.javacms.service.UserService;
+import com.example.javacms.entity.Member;
+import com.example.javacms.service.MemberService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class MemberServiceImpl implements MemberService {
 
     @Override
-    public List<User> findAll() {
+    public List<Member> findAll() {
         return List.of();
     }
 
     @Override
-    public User findById(long id) {
+    public Member findById(long id) {
         return null;
     }
 
     @Override
-    public void save(User user) {
+    public void save(Member member) {
 
     }
 
     @Override
-    public void update(User user) {
+    public void update(Member member) {
 
     }
 

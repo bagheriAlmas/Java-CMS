@@ -1,6 +1,6 @@
 package com.example.javacms.controller;
 
-import com.example.javacms.service.UserService;
+import com.example.javacms.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController{
 
     @Autowired
-    private  UserService userService;
+    private MemberService userService;
 }
