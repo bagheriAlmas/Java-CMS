@@ -1,7 +1,6 @@
 package com.example.javacms.service.impl;
 
 import com.example.javacms.entity.Media;
-import com.example.javacms.entity.User;
 import com.example.javacms.service.MediaService;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +20,12 @@ public class MediaServiceImpl implements MediaService {
     }
 
     @Override
-    public void save(User user) {
+    public void save(Media media) {
 
     }
 
     @Override
-    public void update(User user) {
+    public void update(Media media) {
 
     }
 

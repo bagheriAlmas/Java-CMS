@@ -1,13 +1,13 @@
 package com.example.javacms.service.impl;
 
 import com.example.javacms.entity.Comment;
-import com.example.javacms.entity.User;
 import com.example.javacms.service.CommentService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class CommentServiceImpl implements CommentService {
+
 
     @Override
     public List<Comment> findAll() {
@@ -20,12 +20,12 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public void save(User user) {
+    public void save(Comment comment) {
 
     }
 
     @Override
-    public void update(User user) {
+    public void update(Comment comment) {
 
     }
 

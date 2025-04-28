@@ -1,7 +1,6 @@
 package com.example.javacms.service;
 
 import com.example.javacms.entity.Category;
-import com.example.javacms.entity.User;
 
 import java.util.List;
 
@@ -10,9 +9,9 @@ public interface CategoryService {
 
     Category findById(int id);
 
-    void save(User user);
+    void save(Category category);
 
-    void update(User user);
+    void update(Category category);
 
     void deleteById(int id);
 }

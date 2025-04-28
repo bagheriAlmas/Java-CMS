@@ -1,7 +1,6 @@
 package com.example.javacms.service.impl;
 
 import com.example.javacms.entity.Article;
-import com.example.javacms.entity.User;
 import com.example.javacms.service.ArticleService;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +20,12 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void save(User user) {
+    public void save(Article article) {
 
     }
 
     @Override
-    public void update(User user) {
+    public void update(Article article) {
 
     }
 

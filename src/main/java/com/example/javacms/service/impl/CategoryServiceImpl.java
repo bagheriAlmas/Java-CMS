@@ -1,7 +1,6 @@
 package com.example.javacms.service.impl;
 
 import com.example.javacms.entity.Category;
-import com.example.javacms.entity.User;
 import com.example.javacms.service.CategoryService;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +20,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void save(User user) {
+    public void save(Category category) {
 
     }
 
     @Override
-    public void update(User user) {
+    public void update(Category category) {
 
     }
 

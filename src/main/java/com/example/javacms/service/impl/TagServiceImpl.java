@@ -1,7 +1,6 @@
 package com.example.javacms.service.impl;
 
 import com.example.javacms.entity.Tag;
-import com.example.javacms.entity.User;
 import com.example.javacms.service.TagService;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +20,12 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public void save(User user) {
+    public void save(Tag tag) {
 
     }
 
     @Override
-    public void update(User user) {
+    public void update(Tag tag) {
 
     }
 

@@ -1,7 +1,6 @@
 package com.example.javacms.service.impl;
 
 import com.example.javacms.entity.Role;
-import com.example.javacms.entity.User;
 import com.example.javacms.service.RoleService;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +20,12 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void save(User user) {
+    public void save(Role role) {
 
     }
 
     @Override
-    public void update(User user) {
+    public void update(Role role) {
 
     }
 

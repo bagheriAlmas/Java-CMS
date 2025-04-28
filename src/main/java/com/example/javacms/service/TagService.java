@@ -1,7 +1,6 @@
 package com.example.javacms.service;
 
 import com.example.javacms.entity.Tag;
-import com.example.javacms.entity.User;
 
 import java.util.List;
 
@@ -10,9 +9,9 @@ public interface TagService {
 
     Tag findById(int id);
 
-    void save(User user);
+    void save(Tag tag);
 
-    void update(User user);
+    void update(Tag tag);
 
     void deleteById(int id);
 }

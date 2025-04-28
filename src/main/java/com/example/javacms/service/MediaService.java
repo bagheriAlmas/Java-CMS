@@ -1,7 +1,6 @@
 package com.example.javacms.service;
 
 import com.example.javacms.entity.Media;
-import com.example.javacms.entity.User;
 
 import java.util.List;
 
@@ -10,9 +9,9 @@ public interface MediaService {
 
     Media findById(int id);
 
-    void save(User user);
+    void save(Media media);
 
-    void update(User user);
+    void update(Media media);
 
     void deleteById(int id);
 }
