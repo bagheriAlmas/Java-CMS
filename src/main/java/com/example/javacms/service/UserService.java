@@ -1,5 +1,17 @@
 package com.example.javacms.service;
 
-public interface UserService {
+import com.example.javacms.entity.User;
 
+import java.util.List;
+
+public interface UserService {
+    List<User> findAll();
+
+    User findById(int id);
+
+    void save(User user);
+
+    void update(User user);
+
+    void deleteById(int id);
 }
