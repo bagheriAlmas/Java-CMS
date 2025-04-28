@@ -1,0 +1,44 @@
+package com.example.javacms.entity;
+
+import com.example.javacms.entity.base.BaseEntity;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.List;
+
+@Entity(name = "Article")
+@Table(name = "ARTICLE")
+@Accessors(chain = true)
+@Getter
+@Setter
+public class Article extends BaseEntity implements Serializable {
+
+    @Column(name = "TITLE", nullable = false)
+    private String title;
+
+    @Column(name = "CONTENT", nullable = false, length = 4000)
+    private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToMany
+    @JoinTable(name = "article_tag", joinColumns = @JoinColumn(name = "article_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    private List<Tag> tags;
+
+//    @OneToMany(mappedBy = "article")
+//    private List<Comment> comments; // رابطه OneToMany به Comment
+//
+//    @OneToMany(mappedBy = "article")
+//    private List<Media> media; // رابطه OneToMany به Media
+
+
+}
