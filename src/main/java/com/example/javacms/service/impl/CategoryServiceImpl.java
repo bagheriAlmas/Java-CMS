@@ -15,7 +15,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category findById(int id) {
+    public Category findById(long id) {
         return null;
     }
 
@@ -30,7 +30,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
 
     }
 }

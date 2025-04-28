@@ -7,11 +7,11 @@ import java.util.List;
 public interface MediaService {
     List<Media> findAll();
 
-    Media findById(int id);
+    Media findById(long id);
 
     void save(Media media);
 
     void update(Media media);
 
-    void deleteById(int id);
+    void deleteById(long id);
 }

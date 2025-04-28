@@ -15,7 +15,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Article findById(int id) {
+    public Article findById(long id) {
         return null;
     }
 
@@ -30,7 +30,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
 
     }
 }

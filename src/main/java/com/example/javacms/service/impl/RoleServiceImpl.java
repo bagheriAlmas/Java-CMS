@@ -15,7 +15,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Role findById(int id) {
+    public Role findById(long id) {
         return null;
     }
 
@@ -30,7 +30,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
 
     }
 }

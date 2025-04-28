@@ -15,7 +15,7 @@ public class MediaServiceImpl implements MediaService {
     }
 
     @Override
-    public Media findById(int id) {
+    public Media findById(long id) {
         return null;
     }
 
@@ -30,7 +30,7 @@ public class MediaServiceImpl implements MediaService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
 
     }
 }

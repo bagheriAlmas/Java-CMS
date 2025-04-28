@@ -15,7 +15,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Comment findById(int id) {
+    public Comment findById(long id) {
         return null;
     }
 
@@ -30,7 +30,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
 
     }
 }

@@ -15,7 +15,7 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public Tag findById(int id) {
+    public Tag findById(long id) {
         return null;
     }
 
@@ -30,7 +30,7 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
 
     }
 }

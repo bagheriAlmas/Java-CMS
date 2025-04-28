@@ -7,11 +7,11 @@ import java.util.List;
 public interface CategoryService {
     List<Category> findAll();
 
-    Category findById(int id);
+    Category findById(long id);
 
     void save(Category category);
 
     void update(Category category);
 
-    void deleteById(int id);
+    void deleteById(long id);
 }
