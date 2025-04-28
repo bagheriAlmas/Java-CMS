@@ -2,7 +2,9 @@ package com.example.javacms.entity;
 
 import com.example.javacms.entity.base.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
@@ -12,6 +14,8 @@ import java.util.List;
 @Entity(name = "Article")
 @Table(name = "ARTICLE")
 @Accessors(chain = true)
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Article extends BaseEntity implements Serializable {
