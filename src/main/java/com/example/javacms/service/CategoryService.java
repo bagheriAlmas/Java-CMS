@@ -11,7 +11,7 @@ public interface CategoryService {
 
     void save(Category category);
 
-    void update(Category category);
+    void update(long id, Category category);
 
     void deleteById(long id);
 }
