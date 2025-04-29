@@ -1,11 +1,10 @@
 package com.example.javacms.entity;
 
 import com.example.javacms.entity.base.BaseEntity;
+import com.example.javacms.entity.dto.CategoryRequestDto;
+import com.example.javacms.entity.dto.CategoryResponseDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.util.List;
@@ -16,6 +15,7 @@ import java.util.List;
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder(access = AccessLevel.PRIVATE)
 @Getter
 @Setter
 public class Category extends BaseEntity implements Serializable {
@@ -29,4 +29,14 @@ public class Category extends BaseEntity implements Serializable {
 
     @OneToMany(mappedBy = "category")
     private List<Article> articles;
+
+    public static Category fromDto(CategoryRequestDto dto) {
+        final var category = new Category();
+        category.setName(dto.name());
+        return category;
+    }
+
+    public static CategoryResponseDto toDto(Category category) {
+        return new CategoryResponseDto(category.getId(), category.getName());
+    }
 }
