@@ -10,14 +10,19 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity(name = "Role")
-@Table(name = "ROLE")
+@Entity(name = "Roles")
+@Table(name = "ROLES")
+@SequenceGenerator(name = "SEQ_ROLE", sequenceName = "SeqRole", allocationSize = 1)
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class Role extends BaseEntity implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SeqRole")
+    private Long id;
+
     @Column(name = "ROLE_NAME", nullable = false)
     private String roleName;
 

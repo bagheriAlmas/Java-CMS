@@ -12,11 +12,18 @@ import java.io.Serializable;
 @Entity(name = "Media")
 @Table(name = "MEDIA")
 @Accessors(chain = true)
+@SequenceGenerator(name = "SEQ_MEDIA", sequenceName = "SeqMedia", allocationSize = 1)
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class Media extends BaseEntity implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SeqMedia")
+    private Long id;
+
+
     @Column(name = "URL", nullable = false)
     private String url;
 

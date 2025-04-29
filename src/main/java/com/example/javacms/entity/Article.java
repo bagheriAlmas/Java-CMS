@@ -11,14 +11,19 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity(name = "Article")
-@Table(name = "ARTICLE")
+@Entity(name = "Articles")
+@Table(name = "ARTICLES")
+@SequenceGenerator(name = "SEQ_ARTICLE", sequenceName = "SeqArticle", allocationSize = 1)
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class Article extends BaseEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SeqArticle")
+    private Long id;
 
     @Column(name = "TITLE", nullable = false)
     private String title;

@@ -10,14 +10,19 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity(name = "Member")
-@Table(name = "MEMBER")
+@Entity(name = "Members")
+@Table(name = "MEMBERS")
 @Accessors(chain = true)
+@SequenceGenerator(name = "SEQ_MEMBER", sequenceName = "SeqMember", allocationSize = 1)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class Member extends BaseEntity implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SeqMember")
+    private Long id;
+
     @Column(name = "USERNAME", nullable = false, columnDefinition = "VARCHAR2(255)")
     private String username;
 

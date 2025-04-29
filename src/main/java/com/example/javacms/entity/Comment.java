@@ -9,14 +9,19 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
-@Entity(name = "Comment")
-@Table(name = "COMMENT")
+@Entity(name = "Comments")
+@Table(name = "COMMENTS")
+@SequenceGenerator(name = "SEQ_COMMENT", sequenceName = "SeqComment", allocationSize = 1)
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class Comment extends BaseEntity implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SeqComment")
+    private Long id;
+
     @Column(name = "CONTENT", nullable = false, length = 1000)
     private String content;
 
