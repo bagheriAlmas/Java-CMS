@@ -19,7 +19,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category findById(long id) {
-        return categoryRepository.findById(id).orElse(null);
+        return categoryRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
     @Override
@@ -28,8 +28,10 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void update(Category category) {
-        categoryRepository.save(category);
+    public void update(long id, Category category) {
+        Category dbCategory = categoryRepository.findById(id).orElseThrow(RuntimeException::new);
+        dbCategory.setName(category.getName());
+        categoryRepository.save(dbCategory);
     }
 
     @Override
