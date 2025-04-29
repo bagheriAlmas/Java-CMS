@@ -1,8 +1,11 @@
 package com.example.javacms.controller;
 
-import com.example.javacms.entity.Category;
+import com.example.javacms.entity.dto.CategoryRequestDto;
+import com.example.javacms.entity.dto.CategoryResponseDto;
 import com.example.javacms.service.CategoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,27 +17,30 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @GetMapping
-    List<Category> getAllCategories() {
-        return categoryService.findAll();
+    ResponseEntity<List<CategoryResponseDto>> getAllCategories() {
+        return ResponseEntity.status(HttpStatus.OK).body(categoryService.findAll());
     }
 
     @GetMapping("{id}")
-    Category getCategoryById(@PathVariable Long id) {
-        return categoryService.findById(id);
+    ResponseEntity<CategoryResponseDto> getCategoryById(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(categoryService.findById(id));
     }
 
     @PostMapping
-    void insertCategory(@RequestBody Category category) {
-        categoryService.save(category);
+    ResponseEntity<Void> insertCategory(@RequestBody CategoryRequestDto requestDto) {
+        categoryService.save(requestDto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("{id}")
-    void updateCategory(@PathVariable("id") Long id, @RequestBody Category category) {
-        categoryService.update(id, category);
+    ResponseEntity<Void> updateCategory(@PathVariable("id") Long id, @RequestBody CategoryRequestDto requestDto) {
+        categoryService.update(id, requestDto);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @DeleteMapping("{id}")
-    void updateCategory(@PathVariable("id") Long id) {
+    ResponseEntity<Void> updateCategory(@PathVariable("id") Long id) {
         categoryService.deleteById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
