@@ -1,9 +1,6 @@
 package com.example.javacms.common;
 
-import com.example.javacms.common.exceptions.CategoryNotFoundException;
-import com.example.javacms.common.exceptions.MediaNotFoundException;
-import com.example.javacms.common.exceptions.RoleNotFoundException;
-import com.example.javacms.common.exceptions.TagNotFoundException;
+import com.example.javacms.common.exceptions.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -47,6 +44,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MediaNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleMediaNotFoundException(MediaNotFoundException exception) {
+        final var response = createErrorMessage(exception.getMessage(), exception.getStatus());
+        return new ResponseEntity<>(response, exception.getStatus());
+    }
+
+    @ExceptionHandler(CommentNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleCommentNotFoundException(CommentNotFoundException exception) {
         final var response = createErrorMessage(exception.getMessage(), exception.getStatus());
         return new ResponseEntity<>(response, exception.getStatus());
     }
