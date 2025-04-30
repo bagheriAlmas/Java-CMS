@@ -1,17 +1,18 @@
 package com.example.javacms.service;
 
-import com.example.javacms.entity.Role;
+import com.example.javacms.entity.dto.RoleRequestDto;
+import com.example.javacms.entity.dto.RoleResponseDto;
 
 import java.util.List;
 
 public interface RoleService {
-    List<Role> findAll();
+    List<RoleResponseDto> findAll();
 
-    Role findById(long id);
+    RoleResponseDto findById(long id);
 
-    void save(Role role);
+    void save(RoleRequestDto requestDto);
 
-    void update(Role role);
+    void update(long id, RoleRequestDto requestDto);
 
     void deleteById(long id);
 }
