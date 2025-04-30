@@ -1,17 +1,18 @@
 package com.example.javacms.service;
 
-import com.example.javacms.entity.Tag;
+import com.example.javacms.entity.dto.TagRequestDto;
+import com.example.javacms.entity.dto.TagResponseDto;
 
 import java.util.List;
 
 public interface TagService {
-    List<Tag> findAll();
+    List<TagResponseDto> findAll();
 
-    Tag findById(long id);
+    TagResponseDto findById(long id);
 
-    void save(Tag tag);
+    void save(TagRequestDto requestDto);
 
-    void update(Tag tag);
+    void update(long id, TagRequestDto requestDto);
 
     void deleteById(long id);
 }
