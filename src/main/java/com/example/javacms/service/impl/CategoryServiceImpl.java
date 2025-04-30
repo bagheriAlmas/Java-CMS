@@ -1,5 +1,6 @@
 package com.example.javacms.service.impl;
 
+import com.example.javacms.common.exception.CategoryNotFoundException;
 import com.example.javacms.entity.Category;
 import com.example.javacms.entity.dto.CategoryRequestDto;
 import com.example.javacms.entity.dto.CategoryResponseDto;
@@ -23,7 +24,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryResponseDto findById(long id) {
-        final var category = categoryRepository.findById(id).orElseThrow(RuntimeException::new);
+        final var category = categoryRepository.findById(id).orElseThrow(CategoryNotFoundException::new);
         return Category.toDto(category);
     }
 
@@ -35,7 +36,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void update(long id, CategoryRequestDto requestDto) {
-        final var dbCategory = categoryRepository.findById(id).orElseThrow(RuntimeException::new);
+        final var dbCategory = categoryRepository.findById(id).orElseThrow(CategoryNotFoundException::new);
         dbCategory.setName(requestDto.name());
         categoryRepository.save(dbCategory);
     }
