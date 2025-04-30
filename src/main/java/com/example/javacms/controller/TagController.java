@@ -3,6 +3,7 @@ package com.example.javacms.controller;
 import com.example.javacms.entity.dto.TagRequestDto;
 import com.example.javacms.entity.dto.TagResponseDto;
 import com.example.javacms.service.TagService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/tag")
 @RequiredArgsConstructor
-public class TagController{
+public class TagController {
     private final TagService tagService;
 
     @GetMapping
@@ -27,13 +28,13 @@ public class TagController{
     }
 
     @PostMapping
-    ResponseEntity<Void> insertTag(@RequestBody TagRequestDto requestDto) {
+    ResponseEntity<Void> insertTag(@RequestBody @Valid TagRequestDto requestDto) {
         tagService.save(requestDto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("{id}")
-    ResponseEntity<Void> updateTag(@PathVariable("id") Long id, @RequestBody TagRequestDto requestDto) {
+    ResponseEntity<Void> updateTag(@PathVariable("id") Long id, @RequestBody @Valid TagRequestDto requestDto) {
         tagService.update(id, requestDto);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
