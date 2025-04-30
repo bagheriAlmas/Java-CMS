@@ -2,6 +2,7 @@ package com.example.javacms.service.impl;
 
 import com.example.javacms.common.exceptions.CommentNotFoundException;
 import com.example.javacms.entity.Comment;
+import com.example.javacms.entity.dto.ArticleResponseDto;
 import com.example.javacms.entity.dto.CommentRequestDto;
 import com.example.javacms.entity.dto.CommentResponseDto;
 import com.example.javacms.repository.CommentRepository;
@@ -36,7 +37,7 @@ public class CommentServiceImpl implements CommentService {
     public void save(CommentRequestDto requestDto) {
         final var article = articleService.findById(requestDto.articleId());
         final var member = memberService.findById(requestDto.memberId());
-        final var comment = Comment.fromDto(requestDto, article, member);
+        final var comment = Comment.fromDto(requestDto, ArticleResponseDto.toEntity(article), member);
         commentRepository.save(comment);
     }
 
@@ -44,7 +45,7 @@ public class CommentServiceImpl implements CommentService {
     public void update(long id, CommentRequestDto requestDto) {
         final var dbComment = commentRepository.findById(id).orElseThrow(CommentNotFoundException::new);
         dbComment.setContent(requestDto.content());
-        dbComment.setArticle(articleService.findById(requestDto.articleId()));
+        dbComment.setArticle(ArticleResponseDto.toEntity(articleService.findById(requestDto.articleId())));
         dbComment.setMember(memberService.findById(requestDto.memberId()));
         commentRepository.save(dbComment);
     }

@@ -2,6 +2,7 @@ package com.example.javacms.service.impl;
 
 import com.example.javacms.common.exceptions.MediaNotFoundException;
 import com.example.javacms.entity.Media;
+import com.example.javacms.entity.dto.ArticleResponseDto;
 import com.example.javacms.entity.dto.MediaRequestDto;
 import com.example.javacms.entity.dto.MediaResponseDto;
 import com.example.javacms.repository.MediaRepository;
@@ -37,7 +38,7 @@ public class MediaServiceImpl implements MediaService {
     public void save(MediaRequestDto requestDto) {
         final var article = articleService.findById(requestDto.articleId());
         final var member = memberService.findById(requestDto.memberId());
-        final var media = Media.fromDto(requestDto, article, member);
+        final var media = Media.fromDto(requestDto, ArticleResponseDto.toEntity(article), member);
         mediaRepository.save(media);
     }
 
@@ -45,7 +46,7 @@ public class MediaServiceImpl implements MediaService {
     public void update(long id, MediaRequestDto requestDto) {
         final var dbMedia = mediaRepository.findById(id).orElseThrow(MediaNotFoundException::new);
         dbMedia.setUrl(requestDto.url());
-        dbMedia.setArticle(articleService.findById(requestDto.articleId()));
+        dbMedia.setArticle(ArticleResponseDto.toEntity(articleService.findById(requestDto.articleId())));
         dbMedia.setMember(memberService.findById(requestDto.memberId()));
         mediaRepository.save(dbMedia);
     }
