@@ -1,6 +1,10 @@
 package com.example.javacms.entity;
 
 import com.example.javacms.entity.base.BaseEntity;
+import com.example.javacms.entity.dto.RoleRequestDto;
+import com.example.javacms.entity.dto.RoleResponseDto;
+import com.example.javacms.entity.dto.TagRequestDto;
+import com.example.javacms.entity.dto.TagResponseDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,4 +32,14 @@ public class Role extends BaseEntity implements Serializable {
 
     @ManyToMany(mappedBy = "roles")
     private List<Member> members;
+
+    public static Role fromDto(RoleRequestDto dto) {
+        final var role = new Role();
+        role.setRoleName(dto.roleName());
+        return role;
+    }
+
+    public static RoleResponseDto toDto(Role role) {
+        return new RoleResponseDto(role.getId(), role.getRoleName());
+    }
 }
