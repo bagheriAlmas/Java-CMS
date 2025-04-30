@@ -1,17 +1,19 @@
 package com.example.javacms.service;
 
 import com.example.javacms.entity.Article;
+import com.example.javacms.entity.dto.ArticleRequestDto;
+import com.example.javacms.entity.dto.ArticleResponseDto;
 
 import java.util.List;
 
 public interface ArticleService {
-    List<Article> findAll();
+    List<ArticleResponseDto> findAll();
 
-    Article findById(long id);
+    ArticleResponseDto findById(long id);
 
-    void save(Article article);
+    void save(ArticleRequestDto requestDto);
 
-    void update(Article article);
+    void update(long id, ArticleRequestDto requestDto);
 
     void deleteById(long id);
 }
