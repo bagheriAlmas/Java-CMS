@@ -54,6 +54,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, exception.getStatus());
     }
 
+    @ExceptionHandler(ArticleNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleArticleNotFoundException(ArticleNotFoundException exception) {
+        final var response = createErrorMessage(exception.getMessage(), exception.getStatus());
+        return new ResponseEntity<>(response, exception.getStatus());
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
     public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException exception) {
