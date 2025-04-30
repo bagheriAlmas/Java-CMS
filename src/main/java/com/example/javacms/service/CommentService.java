@@ -1,17 +1,19 @@
 package com.example.javacms.service;
 
 import com.example.javacms.entity.Comment;
+import com.example.javacms.entity.dto.CommentRequestDto;
+import com.example.javacms.entity.dto.CommentResponseDto;
 
 import java.util.List;
 
 public interface CommentService {
-    List<Comment> findAll();
+    List<CommentResponseDto> findAll();
 
-    Comment findById(long id);
+    CommentResponseDto findById(long id);
 
-    void save(Comment comment);
+    void save(CommentRequestDto requestDto);
 
-    void update(Comment comment);
+    void update(long id, CommentRequestDto requestDto);
 
     void deleteById(long id);
 }
