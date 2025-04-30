@@ -1,6 +1,7 @@
 package com.example.javacms.common;
 
 import com.example.javacms.common.exceptions.CategoryNotFoundException;
+import com.example.javacms.common.exceptions.RoleNotFoundException;
 import com.example.javacms.common.exceptions.TagNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -33,6 +34,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(TagNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleTagNotFoundException(TagNotFoundException exception) {
+        final var response = createErrorMessage(exception.getMessage(), exception.getStatus());
+        return new ResponseEntity<>(response, exception.getStatus());
+    }
+
+    @ExceptionHandler(RoleNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleRoleNotFoundException(RoleNotFoundException exception) {
         final var response = createErrorMessage(exception.getMessage(), exception.getStatus());
         return new ResponseEntity<>(response, exception.getStatus());
     }
