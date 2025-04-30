@@ -1,6 +1,6 @@
 package com.example.javacms.service.impl;
 
-import com.example.javacms.common.exception.CategoryNotFoundException;
+import com.example.javacms.common.exceptions.CategoryNotFoundException;
 import com.example.javacms.entity.Category;
 import com.example.javacms.entity.dto.CategoryRequestDto;
 import com.example.javacms.entity.dto.CategoryResponseDto;
